@@ -1,10 +1,10 @@
 # LIGA A
 
- 1. Склонируйте репозиторий
+ 1. Клонируем репозиторий
  ```
  https://github.com/cool-hiya/liga-a.git
  ```
- 2. Установите node_modules
+ 2. Устанавливаем node_modules
  ```
  npm install
  ```
