@@ -1,0 +1,27 @@
+.test-utils {
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+    }
+
+    &__util {
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__note {
+        margin: 8px 0 0;
+    }
+
+    @media(min-width: $bp-md-min) {
+        &__note {
+            margin-top: 10px;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.logo {
+    $c: &;
+    display: flex;
+    align-items: center;
+
+    &__text {
+        margin: 0 0 0 5px;
+        width: 100px;
+        font-size: 14px;
+        line-height: 1;
+        text-transform: uppercase;
+        color: $white;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    @media(max-width: $bp-sm-max) {
+        &__img {
+            filter: invert(0);
+            transition: filter 1s ease;
+        }
+
+        &[data-menu-active="true"] {
+            #{$c+"__img"} {
+                filter: invert(1);
+                transition: filter 1s ease;
+            }
+
+            #{$c+"__text"} {
+                opacity: 1;
+                transition: opacity 1.5s ease;
+            }
+        }
+    }
+
+    @media(min-width: $bp-md-min) {
+        &__img {
+            width: 120px;
+            height: 27px;
+        }
+
+        &__text {
+            display: none;
+        }
+    }
+}

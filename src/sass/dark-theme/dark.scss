@@ -1,0 +1,10 @@
+[data-theme='dark'] {
+    background-color: $brown;
+    color: $white;
+
+    @import './theme-switch';
+    @import './profit';
+    @import './main-nav';
+    @import './logo';
+    @import './promo';
+}

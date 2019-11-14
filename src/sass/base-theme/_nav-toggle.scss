@@ -1,0 +1,63 @@
+.nav-toggle {
+    $c: &;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+    &__bar {
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background-color: $blue;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.5s ease-in-out;
+
+        &:first-child {
+            top: 0;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            top: 9px;
+        }
+
+        &:nth-child(4) {
+            top: 18px;
+        }
+    }
+
+    &[data-menu-active="true"]{
+        #{$c+"__bar"} {
+            background-color: $black;
+
+            &:nth-child(1) {
+                top: 10px;
+                width: 0%;
+                left: 50%;
+            }
+
+            &:nth-child(2) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+
+            &:nth-child(4) {
+                top: 20px;
+                width: 0%;
+                left: 50%;
+            }
+        }
+    }
+}

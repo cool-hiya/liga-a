@@ -1,0 +1,79 @@
+.profit {
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    &__counter {
+        font-size: 24px;
+        flex-shrink: 0;
+        line-height: 1;
+        margin-right: 12px;
+        width: 49px;
+    }
+
+    &__text {
+        margin: 0;
+        min-height: 17px;
+        display: flex;
+        align-items: center;
+        padding-right: 8px;
+    }
+
+    @media(max-width: $bp-sm-max) {
+        &__item {
+            display: flex;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media(min-width: $bp-md-min) {
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            width: calc((100% - 0px)/3);
+            padding: 0 25px 0;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+
+            &:nth-child(3n-2) {
+                padding-left: 0;
+            }
+
+            &:nth-child(3n-1) {
+                padding-left: 10px;
+            }
+        }
+
+        &__text {
+            max-width: 360px;
+            padding-top: 8px;
+        }
+
+        &__counter {
+            color: $pink;
+            width: auto;
+            margin-right: 0;
+            font-size: 27px;
+        }
+    }
+
+    @media(min-width: $bp-lg-min) {
+        &__counter {
+            font-size: 40px;
+        }
+
+        &__item {
+            margin-bottom: 65px;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "IBM Plex Sans";
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/IBMPlexSans-Light.woff2") format("woff2"), url("/fonts/IBMPlexSans-Light.woff") format("woff");
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/IBMPlexSans-SemiBold.woff2") format("woff2"), url("/fonts/IBMPlexSans-SemiBold.woff") format("woff");
+}
+
+body {
+    font-family: "IBM Plex Sans", "Verdana", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    font-size: 17px;
+    color: $black;
+    overflow-x: hidden;
+    background-color: $white;
+}
+
+.centerer {
+    max-width: $bp-xl-min;
+    min-width: $bp-sm-min;
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+@media(min-width: $bp-md-min) {
+    body {
+        font-size: 20px;
+    }
+
+    .centerer {
+        padding: 30px;
+    }
+}
+
+@media(min-width: $bp-lg-min) {
+    body {
+        font-size: 24px;
+    }
+
+    .centerer {
+        padding: 33px 55px;
+    }
+}

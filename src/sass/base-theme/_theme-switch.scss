@@ -1,0 +1,76 @@
+.theme-switch {
+    $c: &;
+    border: 3px solid $black;
+    border-radius: 15px;
+    height: 25px;
+    width: 47px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    position: relative;
+    overflow: hidden;
+
+    &__icon {
+        z-index: 1;
+    }
+
+    &__button {
+        line-height: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;        
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease;
+        }
+
+        &:first-of-type {
+            &:after {
+                transform: translateX(130%);
+            }
+        }
+
+        &:last-of-type {
+            &:after {
+                transform: translateX(-130%);
+            }
+        }
+    }
+
+    &__control {
+        opacity: 0;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+
+        &:last-of-type {
+            right: 0;
+            left: auto;
+        }
+
+        &:checked {
+            &+#{$c+"__button"}:after {
+                background-color: $blue;
+                transform: translateX(0);
+                transition: transform 0.5s ease;
+            }
+        }
+    }
+}

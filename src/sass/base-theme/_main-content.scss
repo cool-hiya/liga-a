@@ -1,0 +1,34 @@
+.main-content {
+    position: relative;
+
+    &__profit {
+        margin: 30px 0 38px;
+    }
+
+    &__promo {
+        padding-top: 35px;
+    }
+
+    @media(min-width: $bp-md-min) {
+        &__profit {
+            margin: 56px 0 0;
+        }
+
+        &__test-utils {
+            width: calc((100% - 105px)/3);
+            position: absolute;
+            bottom: 80px;
+            right: 30px;
+        }
+    }
+
+    @media(min-width: $bp-lg-min) {
+        &__test-utils {
+            bottom: 105px;
+        }
+
+        &__promo {
+            padding-top: 75px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.ie {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__text {
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,26 @@
+.button {
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 50px;
+    font-size: 14px;
+    font-family: inherit;
+    color: $white;
+    text-transform: uppercase;
+    padding: 0 33px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+
+    &--primary {
+        background-color: $blue;
+
+        &:hover{
+            background-color: darken($blue, 3%); 
+        }
+    }
+}
