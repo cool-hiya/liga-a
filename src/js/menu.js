@@ -1,19 +1,19 @@
-var menuToggle = document.getElementById('navToggleJs');
-var menuElements = document.querySelectorAll('[data-menu-active]');
-var body = document.body;
-var breakPointMdMin = 768;
-var isMenuActive = false;
+const menuToggle = document.getElementById('navToggleJs');
+const menuElements = document.querySelectorAll('[data-menu-active]');
+const body = document.body;
+const breakPointMdMin = 768;
+let isMenuActive = false;
 
-menuToggle.addEventListener('click', function () {
+menuToggle.addEventListener('click', () => {
     isMenuActive = !isMenuActive;
     body.style.overflow = isMenuActive ? 'hidden' : '';
 
-    menuElements.forEach(function(el) {
+    menuElements.forEach(el => {
         el.dataset.menuActive = isMenuActive;
     })
 });
 
-window.addEventListener('resize', function () {
+window.addEventListener('resize', () => {
     if (window.innerWidth >= breakPointMdMin) {
         body.style.overflow = '';
     } else {

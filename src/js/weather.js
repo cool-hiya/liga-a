@@ -1,9 +1,9 @@
-var weather = {};
-var weatherWidget = document.getElementById('weatherJs');
-var weatherElements = weatherWidget.children;
-var temperature = weatherElements[0];
-var description = weatherElements[1];
-var key = 'cc08a9b6485ede7aabff209e9615c53b';
+const weather = {};
+const weatherWidget = document.getElementById('weatherJs');
+const weatherElements = weatherWidget.children;
+const temperature = weatherElements[0];
+const description = weatherElements[1];
+const key = 'cc08a9b6485ede7aabff209e9615c53b';
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setPosition);
@@ -17,14 +17,14 @@ function setPosition(position) {
 }
 
 function getWeather(latitude, longitude) {
-    var api = 'http://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&units=metric&appid='+key+'&lang=ru';
+    var api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}&lang=ru`;
 
     fetch(api)
-        .then(function (response) {
+        .then(response => {
             var data = response.json();
             return data;
         })
-        .then(function (data) {
+        .then(data => {
             weather.temperature = stringifyTemperature(data.main.temp);
             weather.description = data.weather[0].description;
             displayWeather();
@@ -40,9 +40,9 @@ function displayWeather() {
 function stringifyTemperature(temp) {
     temp = Math.round(temp);
     if (temp > 0) {
-        temp = '+'+temp;
+        temp = `+${temp}`;
     } else if (temp < 0) {
-        temp = '-'+temp;
-    } 
-    return temp+'°C';
+        temp = `-{$temp}`;
+    }
+    return `${temp}°C`;
 }

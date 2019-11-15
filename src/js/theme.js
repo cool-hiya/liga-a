@@ -1,15 +1,15 @@
-var themeSwitch = document.getElementById('themeSwitchJs');
-var themeSwitchButtons = themeSwitch.querySelectorAll('input');
-var trexImg = document.querySelector('#trexImgId use');
+const themeSwitch = document.getElementById('themeSwitchJs');
+const themeSwitchButtons = themeSwitch.querySelectorAll('input');
+const trexImg = document.querySelector('#trexImgId use');
 
-var storageId = 'theme';
-var savedTheme = localStorage.getItem(storageId);
+const storageId = 'theme';
+let savedTheme = localStorage.getItem(storageId);
 
-var theme = savedTheme ? savedTheme : 'light';
-var activeButton = themeSwitch.querySelector(('input[value=\'' + theme + '\']'));
+let theme = savedTheme ? savedTheme : 'light';
+let activeButton = themeSwitch.querySelector(('input[value=\'' + theme + '\']'));
 
-themeSwitchButtons.forEach(function (button) {
-    button.addEventListener('click', function (e) {
+themeSwitchButtons.forEach(button => {
+    button.addEventListener('click', e => {
         activeButton = e.target;
         theme = activeButton.value;
         setTheme();
@@ -26,18 +26,18 @@ function setTheme() {
 }
 
 function setProperTrexImg() {
-    var path = 'img/sprite.svg#trex-rider-' + theme;
+    var path = `img/sprite.svg#trex-rider-${theme}`;
     trexImg.setAttribute('xlink:href', path);
 }
 
 function setProperIcons() {
-    themeSwitchButtons.forEach(function (button, index) {
+    themeSwitchButtons.forEach((button, index) => {
         var label = button.nextElementSibling;
         var icon = label.querySelector('use');
         if (index === 0) {
-            icon.setAttribute('xlink:href', 'img/sprite.svg#sun-' + theme);
+            icon.setAttribute('xlink:href', `img/sprite.svg#sun-${theme}`);
         } else {
-            icon.setAttribute('xlink:href', 'img/sprite.svg#moon-' + theme);
+            icon.setAttribute('xlink:href', `img/sprite.svg#moon-${theme}`);
         }
     });
 }
