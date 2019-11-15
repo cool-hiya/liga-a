@@ -2,7 +2,7 @@
 
  1. Клонируем репозиторий
  ```
- https://github.com/cool-hiya/liga-a.git
+ git clone https://github.com/cool-hiya/liga-a.git
  ```
  2. Устанавливаем node_modules
  ```
