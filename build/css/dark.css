@@ -1,0 +1,19 @@
+.theme-switch {
+  border-color: #ffffff; }
+
+.profit__counter {
+  color: inherit; }
+
+.main-nav__link {
+  color: inherit; }
+
+.logo__img {
+  fill: #ffffff; }
+
+.promo__description {
+  color: #1f1f1f;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; }
+
+body {
+  background-color: #1f1f1f;
+  color: #ffffff; }
