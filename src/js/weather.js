@@ -17,18 +17,21 @@ function setPosition(position) {
 }
 
 function getWeather(latitude, longitude) {
-    var api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}&lang=ru`;
-
-    fetch(api)
-        .then(response => {
-            var data = response.json();
-            return data;
-        })
-        .then(data => {
+    const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}&lang=ru`;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", api);
+    xhr.onreadystatechange = () => {
+        if (xhr.status == 200) {
+            if (!xhr.responseText) {
+                return;
+            }
+            const data = JSON.parse(xhr.responseText);
             weather.temperature = stringifyTemperature(data.main.temp);
             weather.description = data.weather[0].description;
             displayWeather();
-        });
+        }
+    };
+    xhr.send();
 }
 
 function displayWeather() {

@@ -8,7 +8,8 @@ module.exports = function (grunt) {
         sass: {
             style: {
                 files: {
-                    'build/css/style.css': 'src/sass/style.scss'
+                    'build/css/style.css': 'src/sass/style.scss',
+                    'build/css/dark.css': 'src/sass/dark-theme/dark.scss'
                 }
             }
         },
@@ -30,7 +31,8 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    'build/css/style.min.css': ['build/css/style.css']
+                    'build/css/style.min.css': ['build/css/style.css'],
+                    'build/css/dark.min.css': ['build/css/dark.css']
                 }
             }
         },
@@ -40,6 +42,24 @@ module.exports = function (grunt) {
                 files: {
                     'build/js/script.min.js': ['src/js/*.js']
                 }
+            }
+        },
+
+        babel: {
+            options: {
+                sourceMap: false
+            },
+            dist: {
+                files: {
+                    'build/js/script.min.js': 'build/js/script.min.js'
+                }
+            }
+        },
+
+        polyfill: {
+            options: {
+                features: ['es.array.for-each', 'es.array.from'],
+                output: 'build/js/polyfills.min.js'
             }
         },
 
@@ -74,7 +94,7 @@ module.exports = function (grunt) {
                     cwd: 'src',
                     src: [
                         'fonts/**/*.{woff,woff2}',
-                        'js/ie/*.js',
+                        'js/vendor/*.js',
                         'img/favicon.ico'
                     ],
                     dest: 'build'
@@ -108,11 +128,11 @@ module.exports = function (grunt) {
         watch: {
             style: {
                 files: ['src/sass/**/*.scss'],
-                tasks: ['sass", "postcss", "csso']
+                tasks: ['sass', 'postcss', 'csso']
             },
             scripts: {
                 files: ['src/js/*.js'],
-                tasks: ['uglify']
+                tasks: ['uglify', 'babel']
             },
             markup: {
                 files: ['src/*.html'],
@@ -122,5 +142,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('serve', ['browserSync', 'watch']);
-    grunt.registerTask('build', ["clean", 'copy', 'htmlmin', 'sass', 'postcss', 'csso', 'uglify', 'svgstore']);
+    grunt.registerTask('build', ['clean', 'copy', 'htmlmin', 'sass', 'postcss', 'csso', 'uglify', 'babel', 'polyfill', 'svgstore']);
 };

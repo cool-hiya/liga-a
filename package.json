@@ -8,9 +8,12 @@
     },
     "author": "Arina Busygina",
     "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
         "autoprefixer": "^9.7.1",
         "fetch-polyfill": "^0.8.2",
         "grunt": "^1.0.4",
+        "grunt-babel": "^8.0.0",
         "grunt-browser-sync": "^2.2.0",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-copy": "^1.0.0",
@@ -18,9 +21,11 @@
         "grunt-contrib-uglify-es": "^3.3.0",
         "grunt-contrib-watch": "^1.1.0",
         "grunt-csso": "^2.2.4",
+        "grunt-polyfill-builder": "^1.0.2",
         "grunt-postcss": "^0.9.0",
         "grunt-sass": "^2.1.0",
         "grunt-svgstore": "^2.0.0",
-        "load-grunt-tasks": "^5.1.0"
+        "load-grunt-tasks": "^5.1.0",
+        "core-js": "^3.4.1"
     }
 }

@@ -1,5 +1,5 @@
 const menuToggle = document.getElementById('navToggleJs');
-const menuElements = document.querySelectorAll('[data-menu-active]');
+const menuElements = Array.from(document.querySelectorAll('[data-menu-active]'));
 const body = document.body;
 const breakPointMdMin = 768;
 let isMenuActive = false;

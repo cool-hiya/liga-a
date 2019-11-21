@@ -3,6 +3,10 @@
         margin: 0 auto;
         display: block;
         padding-right: 17px;
+
+        &[hidden] {
+            display: none;
+        }
     }
 
     &__title {
@@ -76,6 +80,10 @@
             font-size: 70px;
             margin: 0;
             width: auto;
+        }
+
+        &__description {
+            width: 400px;
         }
 
         &__img {

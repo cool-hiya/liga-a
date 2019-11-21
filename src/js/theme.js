@@ -1,12 +1,14 @@
 const themeSwitch = document.getElementById('themeSwitchJs');
-const themeSwitchButtons = themeSwitch.querySelectorAll('input');
-const trexImg = document.querySelector('#trexImgId use');
+const themeSwitchButtons = Array.from(themeSwitch.querySelectorAll('input'));
+const trexImages = Array.from(document.querySelectorAll('#promoLogoJs svg'));
+const documentHead = document.head;
 
 const storageId = 'theme';
 let savedTheme = localStorage.getItem(storageId);
 
 let theme = savedTheme ? savedTheme : 'light';
 let activeButton = themeSwitch.querySelector(('input[value=\'' + theme + '\']'));
+const themeSwitchIcons = Array.from(themeSwitch.querySelectorAll('svg'));
 
 themeSwitchButtons.forEach(button => {
     button.addEventListener('click', e => {
@@ -20,24 +22,39 @@ themeSwitchButtons.forEach(button => {
 });
 
 activeButton.click();
+themeSwitch.hidden = false;
 
 function setTheme() {
-    document.body.dataset.theme = theme;
+    const stylesheet = document.getElementById('darkThemeStylesheetJs');
+    if (stylesheet && isLightTheme()) {
+        documentHead.removeChild(stylesheet);
+    } else if (!stylesheet && !isLightTheme()) {
+        documentHead.insertAdjacentHTML('beforeEnd', '<link id="darkThemeStylesheetJs" rel="stylesheet" href="css/dark.min.css"/>');
+    }
+}
+
+function isLightTheme() {
+    return theme === 'light';
 }
 
 function setProperTrexImg() {
-    var path = `img/sprite.svg#trex-rider-${theme}`;
-    trexImg.setAttribute('xlink:href', path);
+    if (!trexImages) {
+        return;
+    }
+    if (isLightTheme()) {
+        trexImages[0].removeAttribute('hidden', '');
+        trexImages[1].setAttribute('hidden', '');
+    } else {
+        trexImages[0].setAttribute('hidden', '');
+        trexImages[1].removeAttribute('hidden', '');
+    }
 }
 
 function setProperIcons() {
-    themeSwitchButtons.forEach((button, index) => {
-        var label = button.nextElementSibling;
-        var icon = label.querySelector('use');
-        if (index === 0) {
-            icon.setAttribute('xlink:href', `img/sprite.svg#sun-${theme}`);
-        } else {
-            icon.setAttribute('xlink:href', `img/sprite.svg#moon-${theme}`);
-        }
+    themeSwitchButtons.forEach((button) => {
+        const label = button.nextElementSibling;
+        const icons = Array.from(label.querySelectorAll('svg'));
+        icons[0].style.display = isLightTheme() ? '' : 'none';
+        icons[1].style.display = !isLightTheme() ? '' : 'none';
     });
 }

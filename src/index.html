@@ -29,7 +29,8 @@
                 <p class="logo__text">Фронтенд аутсорс</p>
             </div>
             <div class="main-header__theme-switch theme-switch"
-                 id="themeSwitchJs">
+                 id="themeSwitchJs"
+                 hidden>
                 <input class="theme-switch__control"
                        type="radio"
                        value="light"
@@ -41,6 +42,11 @@
                          width="11"
                          height="11">
                         <use xlink:href="img/sprite.svg#sun-light"></use>
+                    </svg>
+                    <svg class="theme-switch__icon"
+                         width="11"
+                         height="11">
+                        <use xlink:href="img/sprite.svg#sun-dark"></use>
                     </svg>
                 </label>
                 <input class="theme-switch__control"
@@ -54,6 +60,11 @@
                          width="11"
                          height="11">
                         <use xlink:href="img/sprite.svg#moon-light"></use>
+                    </svg>
+                    <svg class="theme-switch__icon"
+                         width="11"
+                         height="11">
+                        <use xlink:href="img/sprite.svg#moon-dark"></use>
                     </svg>
                 </label>
             </div>
@@ -93,12 +104,18 @@
     </header>
     <main class="main-content centerer">
         <section class="main-content__promo promo">
-            <div class="promo__logo">
+            <div class="promo__logo"
+                 id="promoLogoJs">
+                <svg class="promo__img"
+                     width="170"
+                     height="192">
+                    <use xlink:href="img/sprite.svg#trex-rider-light"></use>
+                </svg>
                 <svg class="promo__img"
                      width="170"
                      height="192"
-                     id="trexImgId">
-                    <use xlink:href="img/sprite.svg#trex-rider-light"></use>
+                     hidden>
+                    <use xlink:href="img/sprite.svg#trex-rider-dark"></use>
                 </svg>
                 <h1 class="promo__title">Лига А.</h1>
                 <p class="promo__description">Фронтенд аутсорс</p>
@@ -175,7 +192,8 @@
             <p class="test-utils__note">Используем для тестов</p>
         </section>
     </main>
-    <script src="js/ie/ie-support.min.js"></script>
+    <script src="js/vendor/svg4everybody.min.js"></script>
+    <script src="js/polyfills.min.js"></script>
     <script src="js/script.min.js"></script>
 </body>
 

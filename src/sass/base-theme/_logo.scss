@@ -16,14 +16,14 @@
 
     @media(max-width: $bp-sm-max) {
         &__img {
-            filter: invert(0);
-            transition: filter 1s ease;
+            fill: $black;
+            transition: fill 1s ease;
         }
 
         &[data-menu-active="true"] {
             #{$c+"__img"} {
-                filter: invert(1);
-                transition: filter 1s ease;
+                fill: $white;
+                transition: fill 1s ease;
             }
 
             #{$c+"__text"} {
