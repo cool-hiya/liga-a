@@ -12,5 +12,3 @@
  ```
  npm run start
  ```
-
-[Посмотреть](https://cool-hiya.github.io/liga-a/build/index.html)
