@@ -44,8 +44,6 @@ function stringifyTemperature(temp) {
     temp = Math.round(temp);
     if (temp > 0) {
         temp = `+${temp}`;
-    } else if (temp < 0) {
-        temp = `-{$temp}`;
     }
     return `${temp}°C`;
 }
