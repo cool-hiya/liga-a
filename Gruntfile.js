@@ -8,8 +8,8 @@ module.exports = function (grunt) {
         sass: {
             style: {
                 files: {
-                    'build/css/style.css': 'src/sass/style.scss',
-                    'build/css/dark.css': 'src/sass/dark-theme/dark.scss'
+                    'src/css/style.css': 'src/sass/style.scss',
+                    'src/css/dark.css': 'src/sass/dark-theme/dark.scss'
                 }
             }
         },
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
                         require("autoprefixer")()
                     ]
                 },
-                src: 'build/css/style.css'
+                src: 'src/css/style.css'
             }
         },
 
@@ -31,8 +31,8 @@ module.exports = function (grunt) {
                     report: 'gzip'
                 },
                 files: {
-                    'build/css/style.min.css': ['build/css/style.css'],
-                    'build/css/dark.min.css': ['build/css/dark.css']
+                    'build/css/style.min.css': ['src/css/style.css'],
+                    'build/css/dark.min.css': ['src/css/dark.css']
                 }
             }
         },
