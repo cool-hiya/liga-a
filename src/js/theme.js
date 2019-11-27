@@ -1,6 +1,6 @@
 const themeSwitch = document.getElementById('themeSwitchJs');
 const themeSwitchButtons = Array.from(themeSwitch.querySelectorAll('input'));
-const trexImages = Array.from(document.querySelectorAll('#promoLogoJs svg'));
+const trexImage = document.querySelector('#promoLogoJs use');
 const documentHead = document.head;
 
 const storageId = 'theme';
@@ -38,23 +38,20 @@ function isLightTheme() {
 }
 
 function setProperTrexImg() {
-    if (!trexImages) {
+    if (!trexImage) {
         return;
     }
-    if (isLightTheme()) {
-        trexImages[0].removeAttribute('hidden', '');
-        trexImages[1].setAttribute('hidden', '');
-    } else {
-        trexImages[0].setAttribute('hidden', '');
-        trexImages[1].removeAttribute('hidden', '');
-    }
+    trexImage.setAttribute('xlink:href', `#trex-rider-${theme}`);
 }
 
 function setProperIcons() {
-    themeSwitchButtons.forEach((button) => {
+    themeSwitchButtons.forEach((button, index) => {
         const label = button.nextElementSibling;
-        const icons = Array.from(label.querySelectorAll('svg'));
-        icons[0].style.display = isLightTheme() ? '' : 'none';
-        icons[1].style.display = !isLightTheme() ? '' : 'none';
+        const icon = label.querySelector('use'); 
+        if (index === 0) {
+            icon.setAttribute('xlink:href', `#sun-${theme}`);
+        } else {
+            icon.setAttribute('xlink:href', `#moon-${theme}`);
+        }
     });
 }

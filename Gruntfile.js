@@ -94,7 +94,6 @@ module.exports = function (grunt) {
                     cwd: 'src',
                     src: [
                         'fonts/**/*.{woff,woff2}',
-                        'js/vendor/*.js',
                         'img/favicon.ico'
                     ],
                     dest: 'build'
