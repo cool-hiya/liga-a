@@ -3,7 +3,7 @@
     font-weight: 300;
     font-style: normal;
     font-display: swap;
-    src: url("/fonts/IBMPlexSans-Light.woff2") format("woff2"), url("/fonts/IBMPlexSans-Light.woff") format("woff");
+    src: url("../fonts/IBMPlexSans-Light.woff2") format("woff2"), url("../fonts/IBMPlexSans-Light.woff") format("woff");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-weight: 600;
     font-style: normal;
     font-display: swap;
-    src: url("/fonts/IBMPlexSans-SemiBold.woff2") format("woff2"), url("/fonts/IBMPlexSans-SemiBold.woff") format("woff");
+    src: url("../fonts/IBMPlexSans-SemiBold.woff2") format("woff2"), url("../fonts/IBMPlexSans-SemiBold.woff") format("woff");
 }
 
 body {
