@@ -10,8 +10,8 @@ if (navigator.geolocation) {
 }
 
 function setPosition(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
 
     getWeather(latitude, longitude);
 }
